@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماڵپەڕی بەش - زانکۆ</title>
+    <style>
+        /* ڕێکخستنی بنەڕەتی */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* بەشی سەرەوە (Header) */
+        header {
+            background-color: #49bfad;
+            color: white;
+            text-align: center;
+            border-bottom: 6px solid gold;
+        }
+
+        .header-content {
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            color: #e0f2f0;
+            font-size: 1.1rem;
+        }
+
+        /* لیستی نێویگەیژن (Navigation) */
+        nav {
+            background-color: #3aa696;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: gold;
+        }
+
+        /* شێوازی دابەشکردنی ماڵپەڕەکە */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
+
+        /* بەشی سەرەکی هەواڵەکان */
+        .main-content {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .section-title {
+            color: #49bfad;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .news-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border-right: 4px solid #49bfad;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card h3 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .news-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #49bfad;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            color: gold;
+        }
+
+        /* بەشی لاتەنیشت (Sidebar) */
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .widget h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        /* تایبەتمەندی بەشی ئاگاداری */
+        .widget-notices {
+            border-right: 5px solid gold;
+        }
+
+        .widget-notices h2 {
+            color: #b89600;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .notice-list {
+            list-style: none;
+        }
+
+        .notice-list li {
+            background-color: #fffdf5;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #f8e58c;
+            color: #555;
+        }
+
+        /* تایبەتمەندی بەشی پلانی ئەمڕۆ */
+        .widget-plan {
+            background-color: #49bfad;
+            color: white;
+        }
+
+        .widget-plan h2 {
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .plan-list {
+            list-style: none;
+        }
+
+        .plan-list li {
+            background: rgba(255,255,255,0.15);
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .plan-list .time {
+            font-weight: bold;
+            color: gold;
+            font-size: 0.9rem;
+        }
+
+        .plan-list .task {
+            font-size: 1.1rem;
+        }
+
+        /* بەشی خوارەوە (Footer) */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 50px;
+            border-top: 5px solid gold;
+        }
+
+        /* بۆ مۆبایل (Responsive Design) */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            nav ul {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>هەواڵ و زانیارییەکانی بەش</h1>
+            <p>پێگەی فەرمی خوێندکاران بۆ نوێترین زانیاری</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">سەرەکی</a></li>
+                <li><a href="#news">هەواڵەکان</a></li>
+                <li><a href="#notices">ئاگاداری</a></li>
+                <li><a href="#plan">پلانی ئەمڕۆ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="news" class="main-content">
+            <h2 class="section-title">دوایین هەواڵەکان</h2>
+            
+            <article class="news-card">
+                <h3>سیمیناری فێربوونی پرۆگرامینگی C#</h3>
+                <p>ئاگاداری سەرجەم قوتابیان دەکەینەوە، کە کۆتایی ئەم هەفتەیە سیمینارێکی تایبەت بە بنەماکانی داڕشتن (Variables, Loops, Methods) بەڕێوەدەچێت. ئامادەبوون بۆ هەمووانە.</p>
+                <a href="#" class="read-more">زیاتر بخوێنەوە...</a>
+            </article>
+
+            <article class="news-card">
+                <h3>خشتەی تاقیکردنەوەکانی میدتێرم</h3>
+                <p>خشتەی نوێی تاقیکردنەوەکانی ئەم وەرزە لەلایەن لیژنەی تاقیکردنەوەکانەوە بڵاوکرایەوە، دەتوانن لە تابلۆی ڕاگەیاندنی بەش بیبینن.</p>
+                <a href="#" class="read-more">زیاتر بخوێنەوە...</a>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+            
+            <section id="notices" class="widget widget-notices">
+                <h2>ئاگاداری تایبەت</h2>
+                <ul class="notice-list">
+                    <li>⚠️ تکایە ناسنامەی زانکۆ لەگەڵ خۆتان بهێنن بۆ تاقیگەکان.</li>
+                    <li>⚠️ دوا مۆڵەت بۆ ڕادەستکردنی پڕۆژەکان ڕۆژی پێنجشەممەیە.</li>
+                </ul>
+            </section>
+
+            <section id="plan" class="widget widget-plan">
+                <h2>پلانی ئەمڕۆ</h2>
+                <ul class="plan-list">
+                    <li>
+                        <span class="time">٠٩:٠٠ بەیانی</span>
+                        <span class="task">وانەی تیۆری (هۆڵی ١)</span>
+                    </li>
+                    <li>
+                        <span class="time">١١:٣٠ پێشنیوەڕۆ</span>
+                        <span class="task">کۆبوونەوەی گرووپەکان</span>
+                    </li>
+                    <li>
+                        <span class="time">٠١:٠٠ پاشنیوەڕۆ</span>
+                        <span class="task">تاقیکردنەوەی کورت (Quiz)</span>
+                    </li>
+                </ul>
+            </section>
+
+        </aside>
+    </main>
+
+    <footer>
+        <p>© 2026 هەموو مافەکان پارێزراوە بۆ ماڵپەڕی بەش.</p>
+    </footer>
+</body>
+</html>
